@@ -2,9 +2,9 @@
 import { useEffect, useRef } from "react";
 
 const videoSources = [
-  "/videos/merged-slider1-3.mp4", // merged slider 1 and 3 video
-  "/videos/burning-fields.mp4",   // after thermal power plant, burning fields video
-  "/videos/clean-nature.mp4",      // last clean nature video
+  "/public/videos/Merge Slider 1.mp4", // merged slider 1 and 3 video
+  "/public/videos/burning-fields.mp4",   // after thermal power plant, burning fields video
+  "/public/videos/clean-nature.mp4",      // last clean nature video
 ];
 
 const MainVideoSlider = () => {

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const DealerCTA = () => {
   return (
@@ -14,12 +15,12 @@ const DealerCTA = () => {
       <p className="mt-4 max-w-xl mx-auto text-lg">
         Join our bio-energy mission and be part of a sustainable future.
       </p>
-      <a
-        href="/dealer-registration"
+      <Link
+        to="/dealer-registration"
         className="mt-6 inline-block px-6 py-3 bg-white text-green-700 font-semibold rounded-full hover:scale-105 transition"
       >
         Register Now
-      </a>
+      </Link>
     </section>
   );
 };

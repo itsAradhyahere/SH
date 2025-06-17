@@ -1,54 +1,65 @@
-// src/components/HomePageVideoSlider.tsx
 import { useEffect, useRef, useState } from "react";
 
+// ✅ Direct video imports from src/videos
 
 
 const videoSlides = [
-  // Problem videos
   {
-    src: "/src/videos/biochar.mp4",
+    src: "/public/videos/briquette.mp4",
     alt: "Coal-fired power station",
     title: "The Problem: Coal & Pollution",
-    description: "Coal burning is a major contributor to CO2 emissions."
+    description: "Coal burning is a major contributor to CO2 emissions.",
   },
   {
     src: "https://media.istockphoto.com/videos/field-of-crops-on-fire-aerial-view-from-a-helicopter-flying-in-a-brownish-gray-smoke-gm1417311773-464501903.mp4",
     alt: "Burning agricultural residue",
     title: "The Problem: Burning Agricultural Residue",
   },
-  // ShuHaRi solutions - pellet, briquette, bamboo etc
   {
-    src: "https://media.istockphoto.com/id/473371665/video/large-sized-briquettes-arranged-into-packages.mp4",
+    src: "/public/videos/briquette.mp4",
     alt: "Wood Briquettes",
     title: "Wood Briquettes: Sustainable Biofuel",
   },
   {
-    src: "https://media.istockphoto.com/id/648993746/video/sawdust-falling-onto-a-pile.mp4",
+    src: "/public/videos/sawdust.mp4",
     alt: "Saw Dust",
     title: "Sawmill Residues Reused",
   },
   {
-    src: "https://media.istockphoto.com/id/1208998453/video/close-up-footage-of-cut-organic-bamboo-poles-ready-to-be-processed-into-sustainable-gm1208998453-349627687.mp4",
+    src: "/public/videos/bamboo.mp4",
     alt: "Bamboo",
     title: "Bamboo Powder & Products",
   },
   {
-    src: "https://media.istockphoto.com/id/998895470/video/black-charcoal-texture-background-gm998895470-270167428.mp4",
+    src: "/public/videos/woodchips.mp4",
+    alt: "Wood Chips",
+    title: "Eco-Friendly Wood Chips Fuel",
+  },
+  {
+    src: "/public/videos/wood-briquette.mp4",
+    alt: "Wood Pellets",
+    title: "Compressed Biomass Pellets",
+  },
+  {
+    src: "/public/videos/wood-briquette.mp4",
+    alt: "Rice Straw & Husk",
+    title: "Rice Straw: Crop Waste to Energy",
+  },
+  {
+    src: "/public/videos/biochar.mp4",
     alt: "Biochar",
     title: "Biochar: Carbon Sequestration",
   },
-  // Care for people, forest & climate
   {
     src: "https://media.istockphoto.com/videos/aerial-calm-surface-of-a-lake-in-the-forest-reflecting-the-beautiful-mount-hood-in-gm864526000-241759649.mp4",
     alt: "Calm Forest Lake",
     title: "We Care for People, Forest, Soil & Climate",
   },
   {
-    src: "https://media.istockphoto.com/videos/hands-hugging-a-tree-trunk-covered-with-green-moss-in-the-woods-people-in-nature-gm1404889987-456977712.mp4",
+    src: "/public/videos/joinus.mp4",
     alt: "Hands Hugging Tree",
     title: "Join Us in Our Mission",
   },
-  // Join us CTA
   {
     src: "https://media.istockphoto.com/videos/india-map-with-indian-flag-zooming-in-from-the-space-through-a-photo-real-animated-gm1395135339-450357789.mp4",
     alt: "Join Us Call to Action",
@@ -70,9 +81,12 @@ const HomePageVideoSlider = () => {
 
     video.addEventListener("ended", handleEnded);
 
-    // Set initial video src
+    // Load and play new video
     video.src = videoSlides[currentIndex].src;
-    video.play();
+    video.load();
+    video.play().catch(() => {
+      // Autoplay might fail if not user-initiated
+    });
 
     return () => {
       video.removeEventListener("ended", handleEnded);
@@ -94,7 +108,9 @@ const HomePageVideoSlider = () => {
           {videoSlides[currentIndex].title}
         </h2>
         {videoSlides[currentIndex].description && (
-          <p className="text-gray-300 mt-2">{videoSlides[currentIndex].description}</p>
+          <p className="text-gray-300 mt-2">
+            {videoSlides[currentIndex].description}
+          </p>
         )}
       </div>
     </div>

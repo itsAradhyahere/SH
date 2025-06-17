@@ -1,11 +1,10 @@
 // src/components/sliders/JoinUsSlider.tsx
 import { useEffect, useRef } from "react";
 
-
 const joinUsVideos = [
-  "/videos/joinus1.mp4",
-  "/videos/joinus2.mp4",
-  "/videos/joinus3.mp4",
+  "/public/videos/joinus1.mp4",
+  "/public/videos/MergeSlider1.mp4",
+  "/public/videos/Slider3.mp4",
 ];
 
 const JoinUsSlider = () => {
@@ -33,7 +32,7 @@ const JoinUsSlider = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-7xl mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-blue-500">
+    <div className="relative w-full max-w-7xl mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-blue-500">
       <video
         ref={videoRef}
         muted
